@@ -41,7 +41,7 @@ public class ProcesadorTransacciones {
         Transaccion[] transaccionesFiltrada = new Transaccion[contador];
 
         if (contador == 0){
-            return transacciones;
+            return transaccionesFiltrada;
         }
 
         contador = 0;
