@@ -2,7 +2,7 @@ package pe.forjix.leccion04;
 
 public class Boletin {
 
-    private static final int MIN_PASSING_SCORE = 11;
+    public static final int MIN_PASSING_SCORE = 11;
 
     public static void main(String[] args) {
         final int[] scores = {15, 8, 18, 11, 20, 7, 13};
