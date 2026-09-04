@@ -15,7 +15,9 @@ public class Cuenta {
     private final String numero;
     private double saldo;           // sin final: este si evoluciona
 
-    /** Constructor: mismo nombre que la clase, SIN tipo de retorno. */
+    /**
+     * Constructor: mismo nombre que la clase, SIN tipo de retorno.
+     */
     public Cuenta(String titular, double saldoInicial) {
         if (titular == null || titular.isBlank()) {
             throw new IllegalArgumentException("El titular es obligatorio");
@@ -29,7 +31,9 @@ public class Cuenta {
         this.numero = String.format("AC-%04d", cuentasCreadas);
     }
 
-    /** Sobrecarga de constructor: delega en el principal con 'this(...)'. */
+    /**
+     * Sobrecarga de constructor: delega en el principal con 'this(...)'.
+     */
     public Cuenta(String titular) {
         this(titular, 0);                   // debe ser la PRIMERA sentencia
     }
@@ -51,7 +55,9 @@ public class Cuenta {
         saldo -= total;
     }
 
-    /** Metodo privado de apoyo: detalle interno, nadie de fuera lo ve. */
+    /**
+     * Metodo privado de apoyo: detalle interno, nadie de fuera lo ve.
+     */
     private void exigirMontoPositivo(double monto) {
         if (monto <= 0) {
             throw new IllegalArgumentException("El monto debe ser positivo, llego: " + monto);
@@ -60,16 +66,28 @@ public class Cuenta {
 
     // Getters solo para lo que de verdad hace falta leer. NO hay setSaldo():
     // el saldo solo cambia por depositar() o retirar(), que aplican las reglas.
-    public String titular()  { return titular; }
-    public String numero()   { return numero; }
-    public double saldo()    { return saldo; }
+    public String titular() {
+        return titular;
+    }
 
-    /** Metodo static: es de la clase, no de ninguna cuenta concreta. */
+    public String numero() {
+        return numero;
+    }
+
+    public double saldo() {
+        return saldo;
+    }
+
+    /**
+     * Metodo static: es de la clase, no de ninguna cuenta concreta.
+     */
     public static int cuentasCreadas() {
         return cuentasCreadas;
     }
 
-    /** toString se llama solo al imprimir el objeto o concatenarlo. */
+    /**
+     * toString se llama solo al imprimir el objeto o concatenarlo.
+     */
     @Override
     public String toString() {
         return "%s [%s] saldo=%.2f".formatted(titular, numero, saldo);
@@ -105,7 +123,9 @@ public class Cuenta {
         System.out.println("a == alias : " + (a == alias));   // true: son el mismo objeto
     }
 
-    /** Ejecuta algo y muestra el error en vez de reventar. Lo entenderas en la Leccion 13. */
+    /**
+     * Ejecuta algo y muestra el error en vez de reventar. Lo entenderas en la Leccion 13.
+     */
     private static void intentar(Runnable accion) {
         try {
             accion.run();
